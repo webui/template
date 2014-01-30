@@ -1,4 +1,4 @@
-template
+WebUI Template - hierarchical template engine
 ========
 
-WebUI Template - hierarchical template engine
+Part of [WebUI](https://github.com/webui) library.
