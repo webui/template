@@ -27,7 +27,7 @@ What problems do we solve?
 Example of use
 -------
 
-### compile template to html
+### Compile template to html
 
 ```javascript
 var html = $webui.template.render('news', {
