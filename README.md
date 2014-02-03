@@ -79,7 +79,6 @@ html
 
 ```yaml
 # news.html
-
 [extend: base.html]
 
 $page.title: $page.title. Top News
