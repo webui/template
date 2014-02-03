@@ -30,7 +30,7 @@ Example of use
 ### Compile template to html
 
 ```javascript
-var html = $webui.template.render('news', {
+var html = $webui.template.render('news.html', {
   page: {
     title: 'Hello World',
     keywords: 'webui template, node.js, javascript, template engine'
@@ -126,5 +126,5 @@ Still under development.
  * `[if ...] ... [elif ...] ... [else] ...` - condition for inner block
  * `[for $obj in $objects] ... [else] ...` - loop of inner block
  * `[url show_article id=$article.id]` - call `url` function and pass `'show_article'` as first argument and then named argument `id = $article.id`
- * `$article.content.escape(',."').nl2br` - we can use pipes looks like in unix shell. And we can use parameters to functions. It's key-chain syntax like this `$article.date_create.date_format('DD/MM/YYYY', time_zone='+2 GMT').escape`
+ * `$article.content.escape(',."').nl2br` - we can use pipes looks like in unix shell. And we can use parameters to functions. It's key-chain syntax like this `$article.date_create.date_format('DD/MM/YYYY',` time_zone='+2 GMT').escape`
  * `$actual_vote.is_equal($rate, 'active', 'inactive')` - inline `if` condition
