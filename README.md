@@ -51,13 +51,23 @@ console.log(html);
 ### Templates
 
 ```yaml
+# config.yaml
+css/bootstrap: http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css
+css/base: /static/css/base.css
+
+js/bootstrap: http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js
+js/base: /static/js/base.js
+```
+
+
+```yaml
 # base.html
 html
   head
     title: $page.title
-    meta name="keywords" content="$page.keywords"
-    link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" media="screen"
-    script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"
+    keywords: $page.keywords
+    include css/bootstrap css/base
+    include js/bootstrap css/base
 
   body
     div.top_menu
@@ -79,7 +89,7 @@ html
 
 ```yaml
 # news.html
-[extend: base.html]
+extend base.html
 
 $page.title: $page.title. Top News
 
@@ -89,17 +99,17 @@ $page.header
 
 $page_content
   div.user_info
-    [if $user.is_authenticated]
+    if $user.is_authenticated
       p: $user.name
       p: $user.email
-    [else]
+    else
       a href="/login": Login
   
   div.articles_list
-    [for $article in $news]
+    for $article in $news
       div.article
-        a href="[url show_article id=$article.id]": $article.title
-        div: [load votes.html]
+        a href="$.url.show_article(id=$article.id)": $article.title
+        div: $.load('votes.html')
         div: $article.content.escape(',."').nl2br
 ```
 
@@ -108,7 +118,7 @@ $page_content
 $actual_vote: $actual_vote.default(0)
 
 div.votes
-  [for $rate in 1..5]
+  for $rate in 1..5
     $is_active: $actual_vote.is_equal($rate, 'active', 'inactive')
     a.star
       img class="$is_active"
@@ -122,9 +132,9 @@ Still under development.
 
  * `$name` - get or set variable. We can access properties of object, like `$user.name`
  * `1..5` - set range from 1 to 5. Like in Ruby
- * `[extend: base.html]` - extend other template. In other words, push local defined variables to given template
- * `[if ...] ... [elif ...] ... [else] ...` - condition for inner block
- * `[for $obj in $objects] ... [else] ...` - loop of inner block
- * `[url show_article id=$article.id]` - call `url` function and pass `'show_article'` as first argument and then named argument `id = $article.id`
+ * `extend base.html` - extend other template. In other words, push local defined variables to given template
+ * `if ... ... elif ... ... else ...` - condition for inner block
+ * `for $obj in $objects ... else ...` - loop of inner block
+ * `url show_article id=$article.id` - call `url` function and pass `'show_article'` as first argument and then named argument `id = $article.id`
  * `$article.content.escape(',."').nl2br` - we can use pipes looks like in unix shell. And we can use parameters to functions. It's key-chain syntax like this `$article.date_create.date_format('DD/MM/YYYY', time_zone='+2 GMT').escape`
  * `$actual_vote.is_equal($rate, 'active', 'inactive')` - inline `if` condition
