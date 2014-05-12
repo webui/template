@@ -67,7 +67,7 @@ html
     title: $page.title
     keywords: $page.keywords
     include css/bootstrap css/base
-    include js/bootstrap css/base
+    include js/bootstrap js/base
 
   body
     div.top_menu
