@@ -12,7 +12,7 @@ Competitors
 --------
 
  * **Slim** ([website](http://slim-lang.com), [repo](https://github.com/slim-template/slim)) - works on Ruby
- * **Jade** ([website](http://jade-lang.com), [repo]()) - workd on JavaScript (and node.js as well). Also has plugin for [Sublime Text](https://sublime.wbond.net/packages/Jade)
+ * **Jade** ([website](http://jade-lang.com), [repo]()) - works on JavaScript (and node.js as well). Also has plugin for [Sublime Text](https://sublime.wbond.net/packages/Jade)
 
 
 The idea
