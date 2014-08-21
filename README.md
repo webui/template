@@ -11,6 +11,7 @@ Part of [WebUI](https://github.com/webui) library.
 Competitors
 --------
 
+ * **shpaml** ([shpaml](http://shpaml.com), [repo](https://github.com/Rootbuzz/shpaml)) - works on Python, with very similar syntax that described below
  * **Slim** ([website](http://slim-lang.com), [repo](https://github.com/slim-template/slim)) - works on Ruby
  * **Jade** ([website](http://jade-lang.com), [repo]()) - works on JavaScript (and node.js as well). Also has plugin for [Sublime Text](https://sublime.wbond.net/packages/Jade)
 
